@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>news</title>
+</head>
+<body>
+
+<h3>Breaking news</h3>
+
+<p id="news"></p>
+
+<script type="application/javascript">
+
+    var eventSource = new EventSource("/news-stream")
+    eventSource.onopen = function (ev) { insert('connection open') };
+    eventSource.onerror = function (ev) { insert('connection closed') };
+
+    eventSource.onmessage = function (ev) {
+        var news = JSON.parse(ev.data);
+        insert('Attention: ' + news.data);
+    };
+
+    function insert(messageNews) {
+        document.getElementById("news").innerText = messageNews;
+    }
+
+</script>
+
+
+</body>
+</html>
