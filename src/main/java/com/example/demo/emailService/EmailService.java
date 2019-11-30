@@ -14,7 +14,7 @@
 //    public void sendSimpleMessage(String subject, String text) {
 //
 //        SimpleMailMessage message = new SimpleMailMessage();
-//        message.setTo("jyankovska@gmail.com");
+//        message.setTo("**********");
 //        message.setSubject(subject);
 //        message.setText(text);
 //        emailSender.send(message);
